@@ -1,0 +1,26 @@
+{
+  "name": "projeto-node",
+  "version": "1.0.0",
+  "description": "Teste Node.js",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amanda Leal",
+  "license": "ISC",
+  "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.46",
+    "bcrypt": "^6.0.0",
+    "connect-session-sequelize": "^8.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10",
+    "sequelize": "^6.37.7"
+  }
+}

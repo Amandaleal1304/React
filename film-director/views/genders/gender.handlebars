@@ -1,0 +1,77 @@
+<h1>Generos</h1>
+
+<form action="/genders/{{#if action }}save{{else}}create{{/if}}" method="post">
+
+    <input type="hidden" name="id" value="{{gender_editing.id}}">
+
+    <label for="name">Name</label>
+
+    <input type="text" id="name" name="name" value="{{gender_editing.name}}" required>
+
+    <label for="description">Description</label>
+
+    <input type="text" id="description" name="description" value="{{gender_editing.description}}" required>
+
+    <button>{{#if action }}Editar{{else}}Criar{{/if}}</button>
+
+</form>
+
+<hr>
+
+<table>
+    
+
+    <thead>
+
+        <tr>
+
+            <th>Name</th>
+
+            <th>Description</th>
+
+            <th>Ações</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {{#each genders}}
+
+        <tr>
+
+            <td>{{this.name}}</td>
+
+            <td>{{this.description}}</td>
+
+            <td style="display: flex; justify-content: space-evenly;">
+
+                <form action="/genders/edit" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Edit</button>
+
+                </form>
+
+                <form action="/genders/delete" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Del</button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+
+</table>
+
+
+

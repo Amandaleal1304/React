@@ -1,0 +1,124 @@
+
+
+
+<h1>Filmes</h1>
+
+<form action="/films/{{#if action }}save{{else}}create{{/if}}" method="post">
+
+    <input type="hidden" name="id" value="{{film_editing.id}}">
+
+    <label for="title">Title</label>
+
+    <input type="text" id="title" name="title" value="{{film_editing.title}}" required>
+
+    <label for="description">Description</label>
+
+    <input type="text" id="description" name="description" value="{{film_editing.description}}" required>
+
+    <label for="year">Year</label>
+
+    <input type="number" id="year" name="year" value="{{film_editing.year}}" required>
+
+    <label for="DirectorId">Director</label>
+
+    <select name="DirectorId" id="DirectorId">
+        {{#each directors}}
+                        <option value="{{this.id}}"
+                        {{#if (eq this.id ../film_editing.DirectorId)}} selected {{/if}}{{!--pega a variavel criada a cima e passa para a eq criada no app.js--}}
+                        >{{this.name}}</option> {{!-- aqui pega o id e mostra o nome --}}
+        {{/each}}
+    </select>
+
+    {{!-- <input type="text" id="DirectorId" name="DirectorId" value="{{film_editing.DirectorId}}" required> --}}
+
+    <label>Genders</label>
+
+    {{!-- <input type="text" id="genders" name="genders" value="{{film_editing.genders}}"> --}}
+    <div class="gender-options">
+    {{#each genders}}
+    <input type="checkbox" id = "gender{{this.id}}" name="genders" value="{{this.id}}" 
+    {{#if (contains ../film_editing.genders this.id)}} checked {{/if}}
+    >
+    <label for="gender{{this.id}}">{{this.name}}</label>
+    {{/each}}
+    </div>
+
+    <button>{{#if action }}Editar{{else}}Criar{{/if}}</button>
+
+</form>
+
+<hr>
+
+<table>
+    
+
+    <thead>
+
+        <tr>
+
+            <th>Title</th>
+
+            <th>Description</th>
+
+            <th>Year</th>
+
+            <th>Director</th>
+
+            <th>Genders</th>
+
+            <th>Ações</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {{#each films}}
+
+        <tr>
+
+            <td>{{this.title}}</td>
+
+            <td>{{this.description}}</td>
+
+            <td>{{this.year}}</td>
+
+            <td>{{this.Director.name}}</td>
+
+            <td> {{#each this.Genders}}
+                 {{this.name}}
+                 {{#unless @last}} - {{/unless}}
+                 {{/each}}
+            </td>
+
+            <td style="display: flex; justify-content: space-evenly;">
+
+                <form action="/films/edit" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Edit</button>
+
+                </form>
+
+                <form action="/films/delete" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Del</button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+
+</table>
+
+
+

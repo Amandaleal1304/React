@@ -1,0 +1,360 @@
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Variáveis de cores para fácil manutenção */
+:root {
+    --primary-blue: #4A90E2;
+    --darker-blue: #357ABD;
+    --light-blue: #6B99E2;
+    --red-delete: #e74c3c;
+    --darker-red: #c0392b;
+    --light-gray-bg: #f8f9fa;
+    --white-bg: #ffffff;
+    --text-color: #333;
+    --light-border: #e0e0e0;
+    --dark-border: #dcdcdc;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos globais para o corpo da página */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--light-gray-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Estilo para títulos principais */
+h1 {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Estilo para o cabeçalho da página */
+header {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--white-bg);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 { /* Sobrescreve o h1 global para o header */
+    margin: 0 0 15px 0;
+    color: var(--text-color);
+    font-size: 2.2rem;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+header nav li {
+    margin: 0 15px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    padding: 8px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    white-space: nowrap;
+}
+
+header nav a:hover {
+    color: var(--darker-blue);
+    border-bottom: 2px solid var(--darker-blue);
+}
+
+/* Estilo para formulários */
+form {
+    background-color: var(--white-bg);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    margin: 0 auto 40px auto; /* Adicione '0 auto' aqui para centralizar horizontalmente */
+    max-width: 600px; /* Aumentado para deixar a caixa mais larga */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form label {
+    display: block;
+    margin-bottom: 1px; /* Espaço pequeno entre label e campo */
+    font-weight: 600;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form select { 
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px; /* Diminuído para reduzir o espaço entre os campos */
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Para colocar todos os itens de gênero em linha */
+.gender-options {
+    display: flex; /* Usa Flexbox para organizar os itens em linha */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço suficiente */
+    gap: 15px; /* Adiciona um espaçamento entre os itens (opcional) */
+    align-items: center; /* Alinha os itens verticalmente no centro (opcional) */
+    margin-bottom: 15px;
+}
+
+/* Se você quiser controlar o espaçamento e alinhamento de cada item individualmente */
+.gender-item {
+    display: flex; /* Faz com que o checkbox e o label dentro de cada item fiquem em linha */
+    align-items: center; /* Alinha o checkbox e o label verticalmente */
+    margin-right: 15px; /* Espaçamento entre cada grupo de checkbox/label */
+    margin-bottom: 5px; /* Pequeno espaçamento inferior se eles quebrarem a linha */
+}
+
+/* Opcional: Para ajustar o espaçamento entre o checkbox e o label dentro de cada item */
+.gender-item input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="number"]:focus,
+form select:focus { 
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+form button {
+    background-color: var(--primary-blue);
+    color: var(--white-bg);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: var(--darker-blue);
+    transform: translateY(-2px);
+}
+
+/* Linha divisória */
+hr {
+    border: none;
+    border-top: 1px solid var(--light-border);
+    margin: 40px 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Estilo para a tabela */
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+}
+
+/* Cabeçalho da tabela */
+thead {
+    background-color: #eaf1f8; /* Mantido fixo para um contraste sutil */
+    color: var(--primary-blue);
+}
+
+thead th {
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid var(--dark-border);
+}
+
+/* Corpo da tabela */
+tbody tr {
+    border-bottom: 1px solid var(--light-border);
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5; /* Mantido fixo para um contraste sutil */
+}
+
+tbody td {
+    padding: 12px 20px;
+    vertical-align: middle;
+    color: #555;
+}
+
+/* Estilos para os botões de ação na célula da tabela */
+td[style*="display: flex; justify-content: space-evenly;"] {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+}
+
+td[style*="display: flex; justify-content: space-evenly;"] form {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+    max-width: none;
+}
+
+td[style*="display: flex; justify-content: space-evenly;"] button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto;
+    white-space: nowrap;
+}
+
+/* Botão de Editar */
+td[style*="display: flex; justify-content: space-evenly;"] form:first-of-type button {
+    background-color: var(--light-blue);
+    color: var(--white-bg);
+}
+
+td[style*="display: flex; justify-content: space-evenly;"] form:first-of-type button:hover {
+    background-color: #5681c2;
+    transform: translateY(-1px);
+}
+
+/* Botão de Deletar */
+td[style*="display: flex; justify-content: space-evenly;"] form:last-of-type button {
+    background-color: var(--red-delete);
+    color: var(--white-bg);
+}
+
+td[style*="display: flex; justify-content: space-evenly;"] form:last-of-type button:hover {
+    background-color: var(--darker-red);
+    transform: translateY(-1px);
+}
+
+/* Estilos para o rodapé */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 800px;
+    border-top: 1px solid var(--light-border);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav li {
+        margin: 5px 0;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    thead th, tbody td {
+        padding: 10px 15px;
+    }
+
+    td[style*="display: flex; justify-content: space-evenly;"] {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    td[style*="display: flex; justify-content: space-evenly;"] button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, header h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="number"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Esconde colunas em telas muito pequenas */
+    table thead th:nth-child(2),
+    table tbody td:nth-child(2) {
+        display: none;
+    }
+}

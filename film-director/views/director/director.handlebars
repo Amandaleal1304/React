@@ -1,0 +1,85 @@
+<h1>Diretores</h1>
+
+<form action="/directors/{{#if action }}save{{else}}create{{/if}}" method="post">
+
+    <input type="hidden" name="id" value="{{director_editing.id}}">
+
+    <label for="name">Name</label>
+
+    <input type="text" id="name" name="name" value="{{director_editing.name}}" required>
+
+    <label for="age">Age</label>
+
+    <input type="number" id="age" name="age" value="{{director_editing.age}}" required>
+
+    <label for="telephone">Telephone</label>
+
+    <input type="text" id="telephone" name="telephone" value="{{director_editing.telephone}}" required>
+
+    <button>{{#if action }}Editar{{else}}Criar{{/if}}</button>
+
+</form>
+
+<hr>
+
+<table>
+    
+
+    <thead>
+
+        <tr>
+
+            <th>Name</th>
+
+            <th>Age</th>
+
+            <th>Telephone</th>
+
+            <th>Ações</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {{#each directors}}
+
+        <tr>
+
+            <td>{{this.name}}</td>
+
+            <td>{{this.age}}</td>
+
+            <td>{{this.telephone}}</td>
+
+            <td style="display: flex; justify-content: space-evenly;">
+
+                <form action="/directors/edit" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Edit</button>
+
+                </form>
+
+                <form action="/directors/delete" method="post">
+
+                    <input type="hidden" name="id" value="{{this.id}}">
+
+                    <button>Del</button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+
+</table>
+
+
+
